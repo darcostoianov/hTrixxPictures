@@ -1,0 +1,27 @@
+﻿@{
+    ViewBag.Title = "Upload";
+}
+
+@model hTrixxPics.Models.Pictures
+
+@using (Html.BeginForm("AddImage", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken();
+
+    <div class="row">
+        <div class="col-xs-12 col-md-12">
+            <br />
+            <br />
+            <input type="text" name="Title" id="Title" placeholder="Adauga titlu..." />
+            <br />
+            <br />
+            <input type="text" name="Descriptinon" id="Descriptinon" placeholder="Adauga o descriere..." />
+            <br />
+            <br />
+            <input type="file" name="ImageFile" id="ImageFile" />
+            <br />
+            <br />
+            <input type="submit" value="Adauga" />
+        </div>
+    </div>
+}

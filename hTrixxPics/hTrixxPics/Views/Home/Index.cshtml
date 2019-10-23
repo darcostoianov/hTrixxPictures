@@ -1,0 +1,50 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="row">
+    <div class="col-xs-12 col-md-12">
+        <div class="text-center">
+            <br />
+            <br />
+            <h3>hTrixx Pictures</h3>
+            <br />
+            <br />
+            <div id="MainFrame">
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        
+        getPics()
+    });
+    
+
+    function getPics() {
+        debugger;
+        $.ajax({
+            type: "GET",
+            url:'@Url.Action("GetPictures", "Home")',
+            dataType: 'json',
+            success: function (data) {
+                $.each(data, function (i, item) {
+                    debugger;
+                    var image = '<div class="card" style="width: 18rem;">' +
+                        '<img src="' + item.fileLocation + '" class="card-img-top">' +
+                        '<div class="card-body">' +
+                        '<p class="card-text">' + item.title + '</p>' +
+                        '<p class="card-text">' + item.description + '</p>' +
+                        '</div>' +
+                        '</div>';
+                    $("#MainFrame").append(image);
+                });
+                
+            }
+        });
+    }
+
+</script>
