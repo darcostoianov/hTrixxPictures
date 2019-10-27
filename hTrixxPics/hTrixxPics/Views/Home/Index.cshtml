@@ -11,7 +11,6 @@
             <br />
             <br />
             <div id="MainFrame">
-                
             </div>
         </div>
     </div>
@@ -22,6 +21,8 @@
         
         getPics()
     });
+
+    
     
 
     function getPics() {
@@ -33,14 +34,27 @@
             success: function (data) {
                 $.each(data, function (i, item) {
                     debugger;
-                    var image = '<div class="card" style="width: 18rem;">' +
-                        '<img src="' + item.fileLocation + '" class="card-img-top">' +
-                        '<div class="card-body">' +
-                        '<p class="card-text">' + item.title + '</p>' +
-                        '<p class="card-text">' + item.description + '</p>' +
+                    //var image = '<div class="card" style="width: 18rem;">' +
+                    //    '<img src="' + item.fileLocation + '" class="card-img-top">' +
+                    //    '<div class="card-body">' +
+                    //    '<p class="card-text">' + item.title + '</p>' +
+                    //    '<p class="card-text">' + item.description + '</p>' +
+                    //    '</div>' +
+                    //    '</div>';
+
+                    var img = '<div id="MainFrame">' +
+                        '<div class="h-pic-main">' +
+                        '<div class="h-pic-top">' +
+                        '<h3>' + item.title + '</h3>' +
+                        '</div>' +
+                        '<img src="' + item.fileLocation + '" class="h-pic-img" style="width:700px;" />' +
+                        '<div class="h-pic-bottom">' +
+                        '<p>' + item.description + '</p>' +
+                        '</div>' +
                         '</div>' +
                         '</div>';
-                    $("#MainFrame").append(image);
+
+                    $("#MainFrame").append(img);
                 });
                 
             }
